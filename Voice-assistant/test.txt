@@ -1,0 +1,35 @@
+from adafruit_servokit import ServoKit
+from time import sleep
+kit = ServoKit(channels=16)
+def reset():
+    kit.servo[5].angle= None#110
+    kit.servo[4].angle= None#90
+    kit.servo[11].angle= None#150
+    kit.servo[12].angle= None
+    kit.servo[3].angle= None
+    kit.servo[10].angle= None
+def stand():
+    kit.servo[12].angle=50
+    kit.servo[5].angle=5
+    kit.servo[4].angle=40
+    kit.servo[3].angle=150
+    kit.servo[10].angle=35
+    kit.servo[11].angle=140
+def walkr():
+    sleep(3)
+    kit.servo[12].angle=75
+    sleep(0.5)
+    kit.servo[3].angle=165
+    kit.servo[5].angle= 110
+    kit.servo[12].angle =50
+    kit.servo[4].angle= 80
+    kit.servo[11].angle= 180
+def walkl():
+    sleep(3)
+    kit.servo[3].angle=75
+    sleep(0.5)
+    kit.servo[12].angle=165
+    kit.servo[10].angle= 110
+    kit.servo[3].angle =50
+    kit.servo[11].angle= 80
+    kit.servo[4].angle= 180
